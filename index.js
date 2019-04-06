@@ -9,7 +9,7 @@ const questionSet = [
         cho3: 'Ezekiel 25:17',
         cho4: 'Ezra 9:9',
  
-    }
+    },
 
     {
         number: 2,
@@ -19,7 +19,7 @@ const questionSet = [
         cho3: 'knee high socks',
         cho4: 'nothing - Elmo prefers nudity',
  
-    }
+    },
 
     {
         number: 3,
@@ -29,7 +29,7 @@ const questionSet = [
         cho3: 'The Jumpers',
         cho4: 'The Paladins',
  
-    }
+    },
 
     {
         number: 4,
@@ -39,7 +39,7 @@ const questionSet = [
         cho3: 'Orange County, California',
         cho4: 'Detroit, Michigan',
  
-    }
+    },
 
     {
         number: 5,
@@ -49,7 +49,7 @@ const questionSet = [
         cho3: 'basketball cards',
         cho4: 'new sneakers',
  
-    }
+    },
 ];
 
 const answers = [
