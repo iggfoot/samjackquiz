@@ -1,6 +1,9 @@
 'use strict';
 
-const questionSet = [
+let questionNum = 0;
+let score = 0;
+
+const questionList = [
     {
         number: 1,
         text: 'What is the Bible verse Jules Winnfield likes to recite?',
@@ -61,8 +64,8 @@ const answers = [
 
 ];
 
-//renderQuestion creates the template of each question
-function renderQuestion() {
+//renderQuestion creates the template of each question as well as score counter
+function renderQuestionStructure(question, correctAnswers, questionsAnswered) {
     return `
     <section id="question-page" role="main">
     <h2 id="question">${question.text}</h2>
@@ -99,14 +102,24 @@ function renderQuestion() {
     </div>
   </section>
   `;
-    
+    console.log("renderQuestionStructure ran");
 
 }    
+
+function askTheQuestion() {
+    const question = questionList[questionNum - 1];
+
+    const questionsAnswered = questionNum - 1;
+
+    $('#container').html(renderQuestionStructure(question, correctAnswers, questionsAnswered));
+
+    console.log("askTheQuestion ran");
+}
 
 function handleStartButton() {
     $('#startQuizButton').click(function(event) {
         console.log("handleStartButton ran");
-        renderQuestion();
+        askTheQuestion();
     });
 }
     
