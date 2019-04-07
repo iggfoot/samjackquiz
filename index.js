@@ -59,18 +59,64 @@ const answers = [
         'Huntsville, Alabama',
         'comic books',
 
-]
+];
+
+//renderQuestion creates the template of each question
+function renderQuestion() {
+    return `
+    <section id="question-page" role="main">
+    <h2 id="question">${question.text}</h2>
+    
+    <form>
+      <fieldset>
+        <label>
+          <input class="answer" type="radio" name="option" checked></input>
+          <span>${question.cho1}</span>
+        </label>
+  
+        <label>
+          <input class="answer" type="radio" name="option"></input>
+          <span>${question.cho2}</span>
+        </label>
+  
+        <label>
+          <input class="answer" type="radio" name="option"></input>
+          <span>${question.cho3}</span>
+        </label>
+  
+        <label>
+          <input class="answer" type="radio" name="option"></input>
+          <span>${question.cho4}</span>
+        </label>
+      </fieldset>  
+      <button id="js-submit-button">Submit</button>
+
+    </form>
+
+    <div id="status-bar">
+      <span id="question-count">Question: ${question.number}/10</span>
+      <span id="score-count">Score: ${correctAnswers}/${questionsAnswered}</span>
+    </div>
+  </section>
+  `;
+    
+
+}    
 
 function handleStartButton() {
     $('#startQuizButton').click(function(event) {
         console.log("handleStartButton ran");
+        renderQuestion();
     });
 }
     
 
 function handleTheQuizApp() {
     handleStartButton();
-    //handleSubmitButton();
+    /*handleSubmitButton();
+      1.event listener for submit button
+      2.check for if answer is right
+      3.right answer goes to rightAnswerView; wrong answer goes to wrongAnswerView*/
     //handleNextButton();
     //handleRestartButton();
 }
