@@ -1,6 +1,6 @@
 'use strict';
 
-let questionNum = 0;
+let questionNum = 1;
 let score = 0;
 
 const questionList = [
@@ -102,36 +102,48 @@ function renderQuestionStructure(question, correctAnswers, questionsAnswered) {
     </div>
   </section>
   `;
-    console.log("renderQuestionStructure ran");
+    
 
-}    
-
-function askTheQuestion() {
+};   
+/////////////////////////////////////////////////////////////
+/*askTheQuestion pseudcode:
+   1. establish question number
+   2. establish question answered
+   3. create the appropriate question based on number, and the html 
+      for counters for score & question answered*/
+function makeQuestion() {
     const question = questionList[questionNum - 1];
 
     const questionsAnswered = questionNum - 1;
 
-    $('#container').html(renderQuestionStructure(question, correctAnswers, questionsAnswered));
-
+    $('.answerView').html(renderQuestionStructure(question, correctAnswers, questionsAnswered));
+    //to make sure function ran properly
     console.log("askTheQuestion ran");
 }
-
-function handleStartButton() {
-    $('#startQuizButton').click(function(event) {
-        console.log("handleStartButton ran");
-        askTheQuestion();
+/////////////////////////////////////////////////////////////////
+/* Start Button pseudocode:
+    1. event listener for 'start' button
+    2. render the first page of quiz*/
+function handleStartQuizButton() {
+      $('#container').on('click', '.startQuizButton', function(event) {
+        console.log("handleStartQuizButton ran");
+        //$('#start-page').remove();
+       // makeQuestion();
+        
+    
     });
 }
-    
+////////////////////////////////////////////////////////////    
 
 function handleTheQuizApp() {
-    handleStartButton();
-    /*handleSubmitButton();
+    handleStartQuizButton();
+   /* handleSubmitButton();
       1.event listener for submit button
       2.check for if answer is right
       3.right answer goes to rightAnswerView; wrong answer goes to wrongAnswerView*/
     //handleNextButton();
     //handleRestartButton();
+    console.log("handleTheQuizApp ran");
 }
 
 handleTheQuizApp();
